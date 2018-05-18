@@ -1,0 +1,27 @@
+.movieContainer {
+  border-top-right-radius:5px;
+  border-bottom-right-radius:5px;
+  border-top-left-radius:10px;
+  border-bottom-left-radius:10px;
+  background:#fff;
+  margin:20px 0;
+}
+.movieContainer:last-of-type {
+  margin-bottom:0;
+}
+.mcInfo {
+  padding-right: 50px;
+}
+.mcImg img {
+  max-width:100%;
+  border-top-left-radius:5px;
+  border-bottom-left-radius:5px;
+}
+.mcFooter {
+  list-style-type:none;
+  padding:0;
+}
+.mcFooter li {
+  display:inline-block;
+  padding-right:20px;
+}

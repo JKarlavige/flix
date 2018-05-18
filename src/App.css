@@ -1,0 +1,12 @@
+body {
+  background:#0A1324;
+}
+input[type="text"], textarea, button {
+  outline: none;
+  box-shadow:none !important;
+  border:none;
+  background:none;
+}
+.container {
+  max-width:960px;
+}

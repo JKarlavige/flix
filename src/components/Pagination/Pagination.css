@@ -1,0 +1,11 @@
+.pagination {
+  margin: 20px 0 0;
+}
+.pagination:last-of-type {
+  margin-bottom:20px;
+}
+#pagination-info {
+  text-align:center;
+  color:#fff;
+  margin-top:3px;
+}

@@ -1,0 +1,20 @@
+fieldset {
+  padding:0;
+  width:100%;
+  border:none;
+  background:#e6e6e6;
+}
+.form-control {
+  border:none;
+  border-radius:0;
+  width:100%;
+  background:none;
+  display:inline-block;
+  padding:15px 0;
+}
+.form-control:focus {
+  background:none;
+}
+.input-group-btn {
+  float:right;
+}
