@@ -1,8 +1,27 @@
+
+.navbar-brand {
+  text-transform: uppercase;
+  color: #39dc5e;
+  font-weight: 800;
+  font-size: 2rem;
+  text-align: center;
+  margin:0;
+  width:100%;
+}
+a:hover {
+  color:#fff;
+}
+.navbar-brand:hover {
+    color:#fff;
+}
 fieldset {
   padding:0;
   width:100%;
   border:none;
-  background:#e6e6e6;
+}
+.fa-search {
+  padding-right:10px;
+  color:#39dc5e;
 }
 .form-control {
   border:none;
@@ -11,10 +30,34 @@ fieldset {
   background:none;
   display:inline-block;
   padding:15px 0;
+  border-bottom:1px solid #fff;
+}
+#search {
+  color:#fff;
 }
 .form-control:focus {
   background:none;
+  color:#fff;
 }
 .input-group-btn {
   float:right;
+}
+.form-control input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #fff;
+}
+.form-control input::-moz-placeholder { /* Firefox 19+ */
+  color: #fff;
+}
+
+@media only screen and (min-width: 480px) {
+.navbar-brand {
+  padding-right: 1.5rem;
+  text-align: left;
+  width:25%;
+  float: left;
+}
+fieldset {
+  width:70%;
+  float:right;
+}
 }

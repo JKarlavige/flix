@@ -7,9 +7,9 @@ import './MovieGrid.css'
 class MovieGrid extends React.Component {
   render() {
     const img_base = 'https://image.tmdb.org/t/p/w500'
-    let results = this.props.results.results
+    let results = this.props.results
     return (
-      <section>
+      <section id='movie-section'>
         {results.map((movie) => (
           <div className='movieContainer' key={movie.id}>
             <div className='row'>
@@ -21,7 +21,7 @@ class MovieGrid extends React.Component {
                 }
               </div>
               <div className='mcInfo col-sm-9'>
-                <h1>{movie.title}</h1>
+                <h2>{movie.title}</h2>
                 <p>{movie.overview.slice(0,200)}
                 {movie.overview.length > 200 && '... Read More'}
                 </p>
