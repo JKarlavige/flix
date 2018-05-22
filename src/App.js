@@ -28,14 +28,12 @@ class App extends Component {
 
   // Sets Now Playing URL
   nowPlayingUrl = () => {
-    let current_url = `${baseUrl}/movie/now_playing?api_key=${key}&page=${this.state.currentPage}&language=${this.state.language}&adult=${this.state.adult}`
-    return current_url
+    return `${baseUrl}/movie/now_playing?api_key=${key}&page=${this.state.currentPage}&language=${this.state.language}&adult=${this.state.adult}`
   }
 
   // Sets Search URL
   searchUrl = () => {
-    let current_url = `${baseUrl}/search/movie?query=${this.state.value}&api_key=${key}&page=${this.state.currentPage}&language=${this.state.language}&adult=${this.state.adult}`
-    return current_url
+    return `${baseUrl}/search/movie?query=${this.state.value}&api_key=${key}&page=${this.state.currentPage}&language=${this.state.language}&adult=${this.state.adult}`
   }
 
   // Runs Now Playing URL on mount
@@ -50,9 +48,13 @@ class App extends Component {
       this.setState((prevState) => ({ currentPage: prevState.currentPage - 1 }), () => {
         let updatedUrl = ''
         this.state.urlType === ('nowPlaying') ? updatedUrl = this.nowPlayingUrl() : updatedUrl = this.searchUrl()
-        this.startFetch(updatedUrl)
         window.scrollTo(0,0)
-        console.log('PREV PAGE', this.state.currentPage, this.state.urlType, updatedUrl)
+        fetchResults(updatedUrl).then(results => { 
+          this.setState({
+            loading: false,
+            results: results,
+          })
+        })
       })
     }
   }
@@ -63,8 +65,12 @@ class App extends Component {
         let updatedUrl = ''
         this.state.urlType === ('nowPlaying') ? updatedUrl = this.nowPlayingUrl() : updatedUrl = this.searchUrl()
         window.scrollTo(0,0)
-        console.log('NEXT PAGE', this.state.currentPage, this.state.urlType, updatedUrl)
-        this.startFetch(updatedUrl)
+        fetchResults(updatedUrl).then(results => { 
+          this.setState({
+            loading: false,
+            results: results,
+          })
+        })
       })
     }
   }
@@ -76,22 +82,31 @@ class App extends Component {
         urlType: 'nowPlaying',
         currentPage: 1,
       }, () => {
-        this.startFetch(this.nowPlayingUrl())
+        fetchResults(this.nowPlayingUrl()).then(results => { 
+          this.setState({
+            loading: false,
+            results: results,
+          })
+        })
       })
     : this.setState({ 
         value: e.target.value,
         urlType: 'search',
         currentPage: 1,
       }, () => {
-        this.startFetch(this.searchUrl())
-        console.log('SEARCHED', this.searchUrl())
+        fetchResults(this.searchUrl()).then(results => { 
+          this.setState({
+            loading: false,
+            results: results,
+          })
+        })
       })
   }
 
   startFetch(url) {
-    // this.setState({
-    //   loading: true
-    // })
+    this.setState({
+      loading: true
+    })
     fetchResults(url).then(results => { 
       this.setState({
         loading: false,
@@ -104,8 +119,6 @@ class App extends Component {
     let totalPages = this.state.results.total_pages
     let currentPage = this.state.results.page
     let resResults =this.state.results.results
-
-    console.log('RENDERED', resResults, this.state.loading)
 
     // Set Page Backdrop
     const backdrop_base = 'https://image.tmdb.org/t/p/w1280'
