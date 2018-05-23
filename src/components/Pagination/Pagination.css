@@ -5,7 +5,7 @@
   margin:0;
 }
 #pagination-2 {
-  margin:20px 0 10px;
+  margin:20px 0 20px;
 }
 .page-item {
 	font-size:1rem;
@@ -36,8 +36,5 @@
 }
 #pagination-1 {
   margin:35px 0 0;
-}
-#pagination-2 {
-  margin:20px 0 0;
 }
 }

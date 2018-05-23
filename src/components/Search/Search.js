@@ -5,7 +5,7 @@ class Search extends React.Component {
     return (
       <nav className='navbar navbar-expand-lg'>
         <div className='container'>
-          <a className='navbar-brand' href='/'><i className='far fa-play-circle'></i> Flix</a>
+          <a className='navbar-brand' href='/'><i className='far fa-play-circle'></i>Flix</a>
           <fieldset>
             <div className="container">
               <label className='form-control'>

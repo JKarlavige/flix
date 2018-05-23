@@ -4,6 +4,7 @@ import Search from './components/Search/Search.js'
 import Loading from './components/Loading/Loading.js'
 import Pagination from './components/Pagination/Pagination.js'
 import MovieGrid from './components/MovieGrid/MovieGrid.js'
+import Footer from './components/Footer/Footer.js'
 
 /** Helpers **/
 import fetchResults from './helpers/fetch.js'
@@ -191,6 +192,7 @@ class App extends Component {
             }
           </div>
         }
+        <Footer />
       </div>
     )
   }

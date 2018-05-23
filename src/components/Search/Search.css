@@ -1,15 +1,16 @@
 
 .navbar-brand {
   text-transform: uppercase;
-  color: #39dc5e;
+  color: #fff;
   font-weight: 800;
   font-size: 2rem;
   text-align: center;
   margin:0;
   width:100%;
 }
-a:hover {
-  color:#fff;
+.navbar-brand i {
+  color: #39dc5e;
+  padding-right:5px;
 }
 .navbar-brand:hover {
     color:#fff;
